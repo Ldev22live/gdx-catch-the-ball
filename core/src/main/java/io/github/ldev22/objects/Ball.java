@@ -13,7 +13,7 @@ public class Ball {
     public Vector2 position = new Vector2();
     public Vector2 velocity = new Vector2();
 
-    public final Vector2 gravity = new Vector2(0, 0.4f);
+    public final Vector2 gravity = new Vector2(0, -0.4f);
     public Circle ballCircle;
     public boolean isAlive;
 
@@ -30,7 +30,8 @@ public class Ball {
     }
 
     public boolean checkCollisionsWithGround(){
-        if(position.y < 0.0){
+        if(position.y < -ballSprite.getHeight()){
+            GameManager.groundSound.play();
             isAlive = false;
             return true;
         }
@@ -39,6 +40,11 @@ public class Ball {
 
     public boolean checkCollisionsWithBasket(){
         if(Intersector.overlaps(ballCircle, GameManager.basket.basketRectangle)){
+            GameManager.basketSound.play();
+            GameManager.score++;
+            if(GameManager.score > GameManager.highScore){
+                GameManager.highScore = GameManager.score;
+            }
             isAlive = false;
             return true;
         }

@@ -14,8 +14,9 @@ import io.github.ldev22.managers.InputManager;
 public class CatchBall implements Screen {
     SpriteBatch batch;
     OrthographicCamera camera;
-
+    public static MainGame game;
     public CatchBall(MainGame game){
+        CatchBall.game = game;
         float height = Gdx.graphics.getHeight();
         float width = Gdx.graphics.getWidth();
 
@@ -65,7 +66,7 @@ public class CatchBall implements Screen {
 
     @Override
     public void hide() {
-
+        dispose();
     }
 
     @Override

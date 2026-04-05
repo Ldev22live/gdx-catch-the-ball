@@ -16,6 +16,7 @@ public class SpawnManager {
     static float delayCounter = 0.0f;
 
     static float width, height;
+    public static float groundY;
 
     static Texture ballTexture;
 
@@ -28,6 +29,7 @@ public class SpawnManager {
     public static void initialize(float width, float height, Texture ballTexture){
         SpawnManager.width = width;
         SpawnManager.height = height;
+        SpawnManager.groundY = height * 0.20f;
         SpawnManager.ballTexture = ballTexture;
         delayCounter = 0.0f;
         ballPool.clear();
