@@ -1,0 +1,13 @@
+package io.github.ldev22.catchball;
+
+import com.badlogic.gdx.Game;
+public class MainGame extends Game{
+    @Override
+    public void create(){
+        setScreen(new CatchBall(this));
+
+
+    }
+
+
+}
